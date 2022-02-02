@@ -4,7 +4,7 @@
 パッケージ:MAMP<br>
 web server:Apache<br>
 DB:MySQL<br>
-言語:PHP<br>
+言語:PHP8.0.8<br>
 テキストエディタ:VSCODE<br>
 データベース接続:PDO（PHP Data Object）<br>
 
