@@ -5,7 +5,7 @@ $user = 'recipes_user';
 $pass = 'Recipes1234';
 
 try{
-    $dbh = new PDO($dsn,$user,$pass[
+    $dbh = new PDO($dsn,$user,$pass,[
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     ]);
     echo '接続成功';
