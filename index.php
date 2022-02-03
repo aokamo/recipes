@@ -1,11 +1,13 @@
 <?php
-
+// db接続にDSN（data source name）ユーザー、パスワードを定義
 $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
 $user = 'recipes_user';
 $pass = 'Recipes1234';
 
+// 接続に成功した場合
 try{
     $dbh = new PDO($dsn,$user,$pass,[
+      // 例外を出力
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     ]);
     // echo '接続成功';
@@ -17,7 +19,10 @@ try{
     $result = $stmt->fetchall(pdo::FETCH_ASSOC);
     // var_dump($result);←取得データ確認コード
 
+    // db接続終了
     $dbh = null;
+
+// 接続に失敗した場合
 } catch(PDOException $e) {
     echo '接続失敗'. $e->getMessage();
     exit();
