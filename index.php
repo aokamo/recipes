@@ -42,7 +42,7 @@ try{
     </header>
     <main role="main" class="container" style="padding:60px 15px 0">
       <div class=info>
-        <h1>ARCH_BLOG</h1>
+        <h1>RECIPES</h1>
         <p><?php echo $info; ?></p>
       </div>
       <div class=index>
