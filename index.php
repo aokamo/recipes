@@ -8,10 +8,13 @@
   </head>
   <body>
     <?php include('navbar.php'); ?>
-    <main role="main" class="container" style="padding:50px 10px 0">
-      <div>
+    <main role="main" class="container" style="padding:60px 15px 0">
+      <div class=info>
         <h1>ARCH_BLOG</h1>
         <p><?php echo $info; ?></p>
+      </div>
+      <div class=index>
+        
       </div>
     </main>
   </body>
