@@ -60,13 +60,14 @@ try{
             <th>body</th>
             <th>created_at</th>
           </tr>
-          <?php foreach($result as $column); ?>
+          <?php foreach($result as $column): ?>
           <tr>
             <td><?php echo $column['id']; ?></td>
             <td><?php echo $column['title']; ?></td>
             <td><?php echo $column['body']; ?></td>
             <td><?php echo $column['created_at']; ?></td>
           </tr>
+          <?php endforeach; ?>
         </table>
       </div>
     </main>
