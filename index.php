@@ -58,12 +58,14 @@ try{
             <th>NO</th>
             <th>title</th>
             <th>body</th>
+            <th>created_at</th>
           </tr>
           <?php foreach($result as $column); ?>
           <tr>
             <td><?php echo $column['id']; ?></td>
             <td><?php echo $column['title']; ?></td>
             <td><?php echo $column['body']; ?></td>
+            <td><?php echo $column['created_at']; ?></td>
           </tr>
         </table>
       </div>
