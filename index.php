@@ -49,8 +49,8 @@ try{
     </header>
     <main role="main" class="container" style="padding:60px 15px 0">
       <div class=info>
-        <h1>RECIPES</h1>
-        <p><?php echo $info; ?></p>
+      <p><?php echo $info; ?></p>
+        <h1>記事一覧</h1>
       </div>
       <div class=index>
         <table>
