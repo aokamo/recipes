@@ -1,3 +1,4 @@
+<!-- データベース接続 -->
 <?php
 // db接続にDSN（data source name）ユーザー、パスワードを定義
 $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
@@ -30,6 +31,7 @@ try{
 
 ?>
 
+<!-- 記事 -->
 <?php $info = file_get_contents("info.txt"); ?>
 <!doctype html>
 <html lang="ja">
