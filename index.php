@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      　<?php include('navbar.php'); ?>
+      <?php include('navbar.php'); ?>
     </header>
     <main role="main" class="container" style="padding:60px 15px 0">
       <div class=info>
