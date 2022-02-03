@@ -61,6 +61,7 @@ try{
             <th>created_at</th>
           </tr>
           <?php foreach($result as $column): ?>
+            <!-- ＊foreachにはコロン -->
           <tr>
             <td><?php echo $column['id']; ?></td>
             <td><?php echo $column['title']; ?></td>
@@ -68,6 +69,7 @@ try{
             <td><?php echo $column['created_at']; ?></td>
           </tr>
           <?php endforeach; ?>
+          <!-- endforeachにはセミコロン -->
         </table>
       </div>
     </main>
