@@ -47,7 +47,7 @@ function getAllPosts(){
 }
 
 // function一覧
-// 取得したデータを表示
+// 取得したpostsデータを表示
 $postsData = getAllPosts();
 
 ?>
