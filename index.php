@@ -88,6 +88,7 @@ $postsData = getAllPosts();
             <td><?php echo $column['title']; ?></td>
             <td><?php echo $column['body']; ?></td>
             <td><?php echo $column['created_at']; ?></td>
+            <td><a href="/show.php?id=<?php echo $column['id']; ?>">詳細</a></td>
           </tr>
           <?php endforeach; ?>
           <!-- endforeachにはセミコロン -->
