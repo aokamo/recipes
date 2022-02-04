@@ -17,3 +17,5 @@ ER 図（https://drive.google.com/file/d/1r7y3NIekLuFosuHBM2O0Ld6ziJvUQbNi/view?
 ・タグ<br>
 ・ユーザー認証<br>
 ・（画像複数投稿）保存先をどうするか。AWS S3? お試しみたいなの探す<br>
+<br>
+SQL インジェクション対策どうするか → プレースホルダ<br>
