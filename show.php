@@ -7,12 +7,14 @@
     $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
     $user = 'recipes_user';
     $pass = 'Recipes1234';
-  
+
     // 接続に成功した場合
     try{
       $dbh = new PDO($dsn,$user,$pass,[
         // 例外を出力
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_EMULATE_PREPARES => false,
+          // ↑↑デフォルトではtrueになっており、プレースホルダを使用する場合はfalseに
       ]);
     // 接続に失敗した場合
     } catch(PDOException $e) {
@@ -24,6 +26,19 @@
   }
 
   $dbh = dbConnect();
+
+  // SQL準備
+  $stmt = $dbh->prepare('SELECT * FROM posts Where id = :id');
+    // id = （直書きしない）
+  $stmt->bindValue(':id', (int)$id, PDO::PARAM_INT);
+    // ↑↑プレースホルダで後から定義
+  // SQL実行
+  $stmt->execute();
+    // ↑↑prepare statementを実行するとき
+  // 結果を取得
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
+  var_dump($result);
+
 ?>
 
 <!DOCTYPE html>
