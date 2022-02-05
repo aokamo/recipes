@@ -1,8 +1,29 @@
 <?php
 
   $id = $_GET['id'];
-  echo $id;
+
+  function dbConnect(){
+    // db接続にDSN（data source name）ユーザー、パスワードを定義
+    $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
+    $user = 'recipes_user';
+    $pass = 'Recipes1234';
   
+    // 接続に成功した場合
+    try{
+      $dbh = new PDO($dsn,$user,$pass,[
+        // 例外を出力
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      ]);
+    // 接続に失敗した場合
+    } catch(PDOException $e) {
+      echo '接続失敗'. $e->getMessage();
+      exit();
+    };
+    // 関数実行
+    return $dbh;
+  }
+
+  $dbh = dbConnect();
 ?>
 
 <!DOCTYPE html>
