@@ -1,6 +1,10 @@
 <?php
 
   $id = $_GET['id'];
+  // 値の判定をして、空の値や不正な値への処理を追加
+  if(empty($id)){
+    exit('IDが不正です。');
+  }
 
   function dbConnect(){
     // db接続にDSN（data source name）ユーザー、パスワードを定義
