@@ -46,7 +46,6 @@ function getAllPosts(){
   $dbh = null;
 }
 
-// function一覧
 // 取得したpostsデータを表示
 $postsData = getAllPosts();
 
