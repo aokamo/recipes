@@ -17,6 +17,8 @@ function dbConnect(){
     $dbh = new PDO($dsn,$user,$pass,[
       // 例外を出力
       PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      // デフォルトではtrueになっており、プレースホルダを使用する場合はfalseに
+      PDO::ATTR_EMULATE_PREPARES => false,
     ]);
   // 接続に失敗した場合
   } catch(PDOException $e) {

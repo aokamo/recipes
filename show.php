@@ -1,32 +1,11 @@
 <?php
 
+require_once('dbc.php');
+
   $id = $_GET['id'];
   // 値の判定をして、空の値や不正な値への処理を追加
   if(empty($id)){
     exit('IDが不正です。');
-  }
-
-  function dbConnect(){
-    // db接続にDSN（data source name）ユーザー、パスワードを定義
-    $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
-    $user = 'recipes_user';
-    $pass = 'Recipes1234';
-
-    // 接続に成功した場合
-    try{
-      $dbh = new PDO($dsn,$user,$pass,[
-        // 例外を出力
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        // デフォルトではtrueになっており、プレースホルダを使用する場合はfalseに
-        PDO::ATTR_EMULATE_PREPARES => false,
-      ]);
-    // 接続に失敗した場合
-    } catch(PDOException $e) {
-      echo '接続失敗'. $e->getMessage();
-      exit();
-    };
-    // 関数実行
-    return $dbh;
   }
 
   $dbh = dbConnect();
