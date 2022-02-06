@@ -41,7 +41,12 @@
     // ↑↑prepare statementを実行するとき
   // 結果を取得
   $result = $stmt->fetch(PDO::FETCH_ASSOC);
-  var_dump($result);
+  // var_dump($result);
+
+  // 値がデータベースにない場合の処理
+  if(!$result){
+    exit('記事がありません。');
+  }
 
 ?>
 
