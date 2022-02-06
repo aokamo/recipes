@@ -2,7 +2,7 @@
 
 require_once('dbc.php');
 
-$result = getPost($_get['id']);
+$result = getPost($_GET['id']);
 
 ?>
 
