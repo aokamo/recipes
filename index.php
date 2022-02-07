@@ -27,7 +27,7 @@
         <p><?php echo $info; ?></p>
       </div>
       <div class="new">
-        <p><a href="/recipes/form.html"></a>新規投稿</p>
+        <p><a href="/recipes/form.html">新規投稿</a></p>
       </div>
       <div class="index">
       <h1>記事一覧</h1>
