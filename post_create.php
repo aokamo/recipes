@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-$posts = $_POST;
-var_dump($posts);
+$post = $_POST;
+var_dump($post);
 
 ?>
