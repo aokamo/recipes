@@ -1,7 +1,11 @@
 <?php
 
+// 処理を一度だけ行う
+require_once('dbc.php');
+
 $post = $_POST;
 
+// バリデーション
 if (empty($post['title'])){
   exit('タイトルを入力してください');
 }
@@ -14,5 +18,29 @@ if (mb_strlen($post['title']) > 191){
 if (empty($post['body'])){
   exit('本文を入力してください');
 }
+
+// データベースへデータ登録
+$sql = 'INSERT INTO
+          post(user_id, category_id, post_tag_id, title, body, post_status)
+        VALUES
+          (:user_id, :category_id, :post_tag_id, :title, :body, :post_status)';
+
+// データベース接続
+$dbh = dbConnect();
+
+try{
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindValue('user_id',$post['user_id'], PDO::PARAM_INT);
+    $stmt->bindValue('category_id',$post['category_id'], PDO::PARAM_INT);
+    $stmt->bindValue('post_tag_id',$post['post_tag_id'], PDO::PARAM_INT);
+    $stmt->bindValue('title',$post['title'], PDO::PARAM_STR);
+    $stmt->bindValue('body',$post['body'], PDO::PARAM_STR);
+    $stmt->bindValue('post_status',$post['post_status'], PDO::PARAM_INT);
+    $stmt->execute();
+    echo '投稿が完了しました。';
+} catch(PDOException $e){
+    exit($e);
+};
+
 
 ?>
