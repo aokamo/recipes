@@ -6,6 +6,7 @@ if (empty($post['title'])){
   exit('タイトルを入力してください');
 }
 
+// 文字の長さを得る
 if (mb_strlen($post['title']) > 191){
   exit('191文字以下で入力してください');
 }
