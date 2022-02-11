@@ -27,6 +27,7 @@ $sql = 'INSERT INTO
 
 // データベース接続
 $dbh = dbConnect();
+// トランザクション
 $dbh->beginTransaction();
 try{
     $stmt = $dbh->prepare($sql);
