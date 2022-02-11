@@ -27,7 +27,7 @@ $sql = 'INSERT INTO
 
 // データベース接続
 $dbh = dbConnect();
-
+$dbh->beginTransaction();
 try{
     $stmt = $dbh->prepare($sql);
     $stmt->bindValue('user_id',$post['user_id'], PDO::PARAM_INT);
@@ -37,8 +37,10 @@ try{
     $stmt->bindValue('body',$post['body'], PDO::PARAM_STR);
     $stmt->bindValue('post_status',$post['post_status'], PDO::PARAM_INT);
     $stmt->execute();
+    $dbh->commit();
     echo '投稿が完了しました。';
 } catch(PDOException $e){
+    $dbh->rollBack();
     exit($e);
 };
 
