@@ -21,7 +21,7 @@ if (empty($post['body'])){
 
 // データベースへデータ登録
 $sql = 'INSERT INTO
-          post(user_id, category_id, post_tag_id, title, body, post_status)
+          postss(user_id, category_id, post_tag_id, title, body, post_status)
         VALUES
           (:user_id, :category_id, :post_tag_id, :title, :body, :post_status)';
 
