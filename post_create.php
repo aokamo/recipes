@@ -21,9 +21,10 @@ if (empty($post['body'])){
 
 // データベースへデータ登録
 $sql = 'INSERT INTO
-          postss(user_id, category_id, post_tag_id, title, body, post_status)
+          -- posts(user_id, category_id, post_tag_id, title, body, post_status)
+          posts(title, body)
         VALUES
-          (:user_id, :category_id, :post_tag_id, :title, :body, :post_status)';
+          (:title, :body)';
 
 // データベース接続
 $dbh = dbConnect();
@@ -31,12 +32,12 @@ $dbh = dbConnect();
 $dbh->beginTransaction();
 try{
     $stmt = $dbh->prepare($sql);
-    $stmt->bindValue('user_id',$post['user_id'], PDO::PARAM_INT);
-    $stmt->bindValue('category_id',$post['category_id'], PDO::PARAM_INT);
-    $stmt->bindValue('post_tag_id',$post['post_tag_id'], PDO::PARAM_INT);
+    // $stmt->bindValue('user_id',$post['user_id'], PDO::PARAM_INT);
+    // $stmt->bindValue('category_id',$post['category_id'], PDO::PARAM_INT);
+    // $stmt->bindValue('post_tag_id',$post['post_tag_id'], PDO::PARAM_INT);
     $stmt->bindValue('title',$post['title'], PDO::PARAM_STR);
     $stmt->bindValue('body',$post['body'], PDO::PARAM_STR);
-    $stmt->bindValue('post_status',$post['post_status'], PDO::PARAM_INT);
+    // $stmt->bindValue('post_status',$post['post_status'], PDO::PARAM_INT);
     $stmt->execute();
     $dbh->commit();
     echo '投稿が完了しました。';
