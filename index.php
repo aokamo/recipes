@@ -1,8 +1,11 @@
 <?php
   // 処理を一度だけ行う
   require_once('dbc.php');
+
+  // Dbcクラスをインスタンス化
+  $dbc = new Dbc;
   // 取得したpostsデータを表示
-  $postsData = getAllPosts();
+  $postsData = $dbc->getAllPosts();
 
 ?>
 
