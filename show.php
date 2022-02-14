@@ -3,7 +3,7 @@
 require_once('dbc.php');
 
 $dbc = new Dbc();
-$result = getPost($_GET['id']);
+$result = $dbc->getPost($_GET['id']);
 
 ?>
 
