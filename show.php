@@ -2,6 +2,7 @@
 
 require_once('dbc.php');
 
+$dbc = new Dbc();
 $result = getPost($_GET['id']);
 
 ?>
