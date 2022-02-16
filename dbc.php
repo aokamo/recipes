@@ -1,5 +1,6 @@
 <?php
 
+// クラス定義
 Class Dbc
 {
 
@@ -78,6 +79,34 @@ Class Dbc
       exit('記事がありません。');
     }
     return $result;
+  }
+
+  function postCreate($post){
+    // データベースへデータ登録
+    $sql = 'INSERT INTO
+      posts(title, body)
+    VALUES
+      (:title, :body)';
+
+    // データベース接続
+    $dbh = $this->dbConnect();
+    // トランザクション
+    $dbh->beginTransaction();
+    try{
+    $stmt = $dbh->prepare($sql);
+      // $stmt->bindValue('user_id',$post['user_id'], PDO::PARAM_INT);
+      // $stmt->bindValue('category_id',$post['category_id'], PDO::PARAM_INT);
+      // $stmt->bindValue('post_tag_id',$post['post_tag_id'], PDO::PARAM_INT);
+      $stmt->bindValue('title',$post['title'], PDO::PARAM_STR);
+      $stmt->bindValue('body',$post['body'], PDO::PARAM_STR);
+      // $stmt->bindValue('post_status',$post['post_status'], PDO::PARAM_INT);
+      $stmt->execute();
+      $dbh->commit();
+      echo '投稿が完了しました。';
+    } catch(PDOException $e){
+      $dbh->rollBack();
+      exit($e);
+    };
   }
 }
 ?>
