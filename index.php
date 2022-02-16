@@ -3,7 +3,7 @@
   require_once('dbc.php');
 
   // Dbcクラスをインスタンス化
-  $dbc = new Dbc;
+  $dbc = new Dbc();
   // 取得したpostsデータを表示
   $postsData = $dbc->getAllPosts();
 
