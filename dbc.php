@@ -10,7 +10,7 @@ Class Dbc
   // 関数（データベース接続）
   // 引数：なし
   // 返り値：接続結果を返す
-  function dbConnect(){
+  private function dbConnect(){
     // db接続にDSN（data source name）ユーザー、パスワードを定義
     $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
     $user = 'recipes_user';
@@ -36,7 +36,7 @@ Class Dbc
   // 関数（データ取得）
   // 引数：なし
   // 返り値：取得したデータ
-  function getAllPosts(){
+  public function getAllPosts(){
     // db接続
     $dbh = $this->dbConnect();
     // ①SQLの準備
@@ -54,7 +54,7 @@ Class Dbc
 
   // 引数：$id
   // 返り値：$result
-  function getPost($id){
+  public function getPost($id){
     // 値の判定をして、空の値や不正な値への処理を追加
     if(empty($id)){
       exit('IDが不正です。');
@@ -81,7 +81,7 @@ Class Dbc
     return $result;
   }
 
-  function postCreate($post){
+  public function postCreate($post){
     // データベースへデータ登録
     $sql = 'INSERT INTO
       posts(title, body)
