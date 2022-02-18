@@ -10,6 +10,7 @@ Class Dbc
   // 関数（データベース接続）
   // 引数：なし
   // 返り値：接続結果を返す
+  // 自クラス内で使用するときはアクセス修飾子をprivateに
   private function dbConnect(){
     // db接続にDSN（data source name）ユーザー、パスワードを定義
     $dsn = 'mysql:host=localhost;dbname=recipes;charset=utf8';
@@ -36,6 +37,7 @@ Class Dbc
   // 関数（データ取得）
   // 引数：なし
   // 返り値：取得したデータ
+  // 他ページで使用するときはアクセス修飾子をpublicに
   public function getAllPosts(){
     // db接続
     $dbh = $this->dbConnect();
